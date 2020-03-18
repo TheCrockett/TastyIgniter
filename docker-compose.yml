@@ -15,6 +15,7 @@ services:
  db:
   image: mariadb
   container_name: tasty_db
+  restart: always
   volumes:
   - db_data:/var/lib/mysql
   environment:
@@ -22,7 +23,6 @@ services:
   - MYSQL_DATABASE=tastyigniter
   - MYSQL_USER=tastyigniter
   - MYSQL_PASSWORD=somepassword
-restart: always
 volumes:
   db_data:
     driver: local
