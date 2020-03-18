@@ -4,6 +4,7 @@ services:
   image: thisisqasim/tastyigniter
 #  build: .
   container_name: tasty_app
+  restart: always
   ports:
   - "8001:80"
   environment:
