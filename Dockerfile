@@ -34,6 +34,8 @@ VOLUME /var/www/html
 
 ENV TASTYIGNITER_VERSION 2.1.1
 
+RUN pear install --alldeps Mail
+
 RUN set -ex; \
 	curl -o tastyigniter.zip -fSL "https://codeload.github.com/tastyigniter/TastyIgniter/zip/${TASTYIGNITER_VERSION}"; \
 	unzip tastyigniter.zip -d /usr/src/; \
