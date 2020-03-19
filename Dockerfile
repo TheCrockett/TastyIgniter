@@ -43,8 +43,8 @@ RUN set -ex; \
 	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter; \
 	chown -R www-data:www-data /usr/src/tastyigniter
 	
-RUN curl -v https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN cd /var/www/html; composer install && php artisan igniter:install
 
 
