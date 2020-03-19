@@ -32,7 +32,7 @@ RUN a2enmod rewrite
 
 VOLUME /var/www/html
 
-ENV TASTYIGNITER_VERSION 2.1.1
+ENV TASTYIGNITER_VERSION master
 
 RUN pear install --alldeps Mail
 
