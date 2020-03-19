@@ -45,7 +45,7 @@ RUN set -ex; \
 	
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN cd /var/www/html; composer install && php artisan igniter:install
+RUN cd /usr/src/tastyigniter; composer install && php artisan igniter:install
 
 
 
