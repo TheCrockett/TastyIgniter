@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 
 # install the PHP extensions we need
 RUN set -ex; \
@@ -42,6 +42,13 @@ RUN set -ex; \
 	rm tastyigniter.zip; \
 	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter; \
 	chown -R www-data:www-data /usr/src/tastyigniter
+	
+RUN cd /var/www/html; curl -s https://getcomposer.org/installer | php
+RUN mv  composer.phar /usr/local/bin/composer
+RUN composer install && php artisan igniter:install
+
+
+
 
 
 COPY docker-entrypoint.sh /usr/local/bin/
