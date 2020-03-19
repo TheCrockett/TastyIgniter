@@ -44,8 +44,8 @@ RUN set -ex; \
 	chown -R www-data:www-data /usr/src/tastyigniter
 	
 RUN cd /var/www/html; curl -s https://getcomposer.org/installer | php
-RUN mv  composer.phar /usr/local/bin/composer
-RUN composer install && php artisan igniter:install
+RUN cd /var/www/html; mv  composer.phar /usr/local/bin/composer
+RUN cd /var/www/html; composer install && php artisan igniter:install
 
 
 
